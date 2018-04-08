@@ -13,7 +13,8 @@ public class MyReceiver extends BroadcastReceiver {
     private final String TAG = "ProcStartTest";
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.i(TAG, "received intent:" + intent);
+        int pid = android.os.Process.myPid();
+        Log.i(TAG, "Receiver pid = "+pid+"; received intent:" + intent);
         Intent myServiceIntent=new Intent(context,MyService.class);
         context.startService(myServiceIntent);
 
